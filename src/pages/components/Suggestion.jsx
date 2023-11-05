@@ -2,13 +2,13 @@ import * as React from 'react';
 
 
 
-export function Suggestion({username, jobTitle}) {
+export function Suggestion({username, jobTitle, img}) {
   return (
     <>
       <div className={'flex flex-col space-y-2 mt-4 ml-1'}>
         <div className={'flex items-center justify-between'}>
           <img
-            src={'https://links.papareact.com/3ke'}
+            src={img}
             alt={'profile'}
             className={'rounded-full h-10 w-10 border p-[2px]'}
           />

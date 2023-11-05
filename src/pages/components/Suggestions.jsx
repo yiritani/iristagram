@@ -9,6 +9,7 @@ export function Suggestions() {
       id: i,
       username: minifaker.username({locale: 'en'}).toLowerCase(),
       jobTitle: minifaker.jobTitle(),
+      img: `https://i.pravatar.cc/150?img=${i+1}`,
     }))
     setSuggestions(suggestions)
   }, [])
@@ -21,6 +22,7 @@ export function Suggestions() {
             key={profile.id}
             username={profile.username}
             jobTitle={profile.jobTitle}
+            img={profile.img}
           />
         ))}
 
