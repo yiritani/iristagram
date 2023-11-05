@@ -1,5 +1,6 @@
 import React from 'react';
 import {DotsHorizontalIcon} from "@heroicons/react/solid";
+import {HeartIcon, ChatIcon, BookmarkIcon} from "@heroicons/react/outline";
 
 
 export default function Post({id, username, userImg, img, caption}) {
@@ -15,15 +16,28 @@ export default function Post({id, username, userImg, img, caption}) {
         <p className={'flex-1 w-12  font-bold cursor-pointer hover:underline'}>{username}</p>
         <DotsHorizontalIcon className={'h-5 cursor-pointer'}/>
       </div>
+
+
         <img
           src={img}
           alt={username}
           className="object-cover w-full h-96"
         />
-        <div>
-          <p className='text-xs w-14 truncate'>{username}</p>
-          <p className='text-xs w-14 truncate'>{caption}</p>
+
+        {/*create buttons like comment */}
+      <div className={'flex justify-between px-4 pt-4'}>
+        <div className={'flex space-x-4'}>
+          <HeartIcon className={'btn'}/>
+          <ChatIcon className={'btn'}/>
         </div>
+        <BookmarkIcon className={'btn'}/>
+      </div>
+
+
+        {/*<div>*/}
+        {/*  <p className='text-xs w-14 truncate'>{username}</p>*/}
+        {/*  <p className='text-xs w-14 truncate'>{caption}</p>*/}
+        {/*</div>*/}
       </div>
     </>
   )
