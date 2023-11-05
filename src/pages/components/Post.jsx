@@ -1,6 +1,6 @@
 import React from 'react';
 import {DotsHorizontalIcon} from "@heroicons/react/solid";
-import {HeartIcon, ChatIcon, BookmarkIcon} from "@heroicons/react/outline";
+import {HeartIcon, ChatIcon, BookmarkIcon, EmojiHappyIcon} from "@heroicons/react/outline";
 
 
 export default function Post({id, username, userImg, img, caption}) {
@@ -17,14 +17,12 @@ export default function Post({id, username, userImg, img, caption}) {
         <DotsHorizontalIcon className={'h-5 cursor-pointer'}/>
       </div>
 
+      <img
+        src={img}
+        alt={username}
+        className="object-cover w-full h-96"
+      />
 
-        <img
-          src={img}
-          alt={username}
-          className="object-cover w-full h-96"
-        />
-
-        {/*create buttons like comment */}
       <div className={'flex justify-between px-4 pt-4'}>
         <div className={'flex space-x-4'}>
           <HeartIcon className={'btn'}/>
@@ -33,12 +31,22 @@ export default function Post({id, username, userImg, img, caption}) {
         <BookmarkIcon className={'btn'}/>
       </div>
 
-
-        {/*<div>*/}
-        {/*  <p className='text-xs w-14 truncate'>{username}</p>*/}
-        {/*  <p className='text-xs w-14 truncate'>{caption}</p>*/}
-        {/*</div>*/}
+      <div className={'flex px-4 pt-4'}>
+        <p className={'font-bold mr-1'}>{username}</p>
+        <p className={'truncate'}>{caption}</p>
       </div>
+
+      <div className={'px-4 pb-4'}>
+        <p className={'text-blue-500 cursor-pointer hover:underline'}>View all comments</p>
+        <p className={'text-gray-500 cursor-pointer'}>3 days ago</p>
+      </div>
+
+      <form action={'#'} className={'flex items-center p-4'}>
+        <EmojiHappyIcon className={'h-7'}/>
+        <input type={'text'} placeholder={'Add a comment...'} className={'border-none flex-1 focus:ring-0 outline-none'}/>
+        <button className={'font-semibold text-blue-400'}>Post</button>
+      </form>
+    </div>
     </>
   )
 }
