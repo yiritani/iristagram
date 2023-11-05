@@ -9,7 +9,7 @@ export default function Posts() {
       username: 'daniel',
       userImg: 'https://links.papareact.com/3ke',
       img: 'https://links.papareact.com/3ke',
-      caption: 'This is dope',
+      caption: 'Amazing nature photo is here.',
     },
     {
       id: '2',
