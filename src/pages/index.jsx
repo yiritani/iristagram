@@ -9,7 +9,7 @@ export default function Home() {
   return (
       <div className='bg-gray-50 min-h-screen'>
         <Head>
-          <title>Create Iristagram</title>
+          <title>Iristagram</title>
           <meta name="description" content="Create Iristagram" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
