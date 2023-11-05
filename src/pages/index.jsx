@@ -1,19 +1,23 @@
 import { Inter } from 'next/font/google'
 import Head from "next/head";
 import Header from './components/Header';
+import Feed from "@/pages/components/Feed";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-      <div>
+      <div className='bg-gray-50 min-h-screen'>
         <Head>
           <title>Create Iristagram</title>
           <meta name="description" content="Create Iristagram" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-      <Header />
+        <Header />
+
+        <Feed />
+
 
 
       </div>
