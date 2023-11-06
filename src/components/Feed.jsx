@@ -1,8 +1,8 @@
 import React from 'react';
-import Stories from "@/pages/components/Stories";
-import Posts from "@/pages/components/Posts";
-import {MiniProfile} from "@/pages/components/MiniProfile";
-import {Suggestions} from "@/pages/components/Suggestions";
+import Stories from "@/components/Stories";
+import Posts from "@/components/Posts";
+import {MiniProfile} from "@/components/MiniProfile";
+import {Suggestions} from "@/components/Suggestions";
 
 export default function Feed() {
   return (

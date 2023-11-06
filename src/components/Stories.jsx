@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import 'minifaker/locales/en'
 import minifaker from 'minifaker';
-import Story from "@/pages/components/Story";
+import Story from "@/components/Story";
 
 export default function Stories() {
   const [storyUsers, setStoryUsers] = useState([]);

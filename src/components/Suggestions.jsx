@@ -1,6 +1,6 @@
 import * as React from 'react';
 import minifaker from "minifaker";
-import {Suggestion} from "@/pages/components/Suggestion";
+import {Suggestion} from "@/components/Suggestion";
 
 export function Suggestions() {
   const [suggestions, setSuggestions] = React.useState([])
