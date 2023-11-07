@@ -21,7 +21,6 @@ export default function SignIn({providers}) {
               <button className={"bg-blue-500 rounded-lg text-white p-3 hover:bg-blue-600"} onClick={() => signIn(provider.id, {callbackUrl: "/"})}>Sign in with {provider.name}</button>
             </div>
             ))}
-
         </div>
       </div>
     </>

@@ -2,8 +2,14 @@ import React from 'react'
 import Image from 'next/image'
 import {SearchIcon, PlusCircleIcon} from '@heroicons/react/outline'
 import {HomeIcon} from "@heroicons/react/solid";
+import {useSession, signIn, signOut} from "next-auth/react";
 
 export default function Header() {
+  const {data: session} = useSession()
+
+
+
+
   return (
     <>
       <div className='shadow-sm border-b bg-white sticky top-0 z-50'>
@@ -36,15 +42,21 @@ export default function Header() {
 
           <div className={"flex space-x-4 items-center"}>
             <HomeIcon className={"hidden lg:inline-flex h-6 w-6 text-gray-500 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out"} />
-            <PlusCircleIcon className={"h-6 w-6 text-gray-500 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out"} />
-            <div className='h-10 w-10 relative cursor-pointer'>
-              <Image
-                src={"https://links.papareact.com/3ke"}
-                layout="fill"
-                className={"object-contain rounded-full"}
-                alt={"instagram plus icon"}
-              />
-            </div>
+            {session ? (
+              <>
+                <PlusCircleIcon className={"h-6 w-6 text-gray-500 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out"} />
+                <div className='h-10 w-10 relative cursor-pointer'>
+                  <img
+                    onClick={signOut}
+                    src={session.user.image}
+                    className={"object-contain rounded-full"}
+                    alt={"instagram plus icon"}
+                  />
+                </div>
+              </>
+              ): (
+                <button onClick={signIn} className={"text-blue-500 font-semibold text-sm"}>Sign in</button>
+              )}
           </div>
         </div>
       </div>
