@@ -10,6 +10,13 @@ export const authOptions = {
   ],
   pages: {
     signIn: "/auth/signin",
+  },
+  callbacks: {
+    async session({session, token, user}) {
+      session.user.username = session.user.name.split(' ').join('_').toLowerCase()
+      session.user.uid = token.sub
+      return session
+    }
   }
 }
 
