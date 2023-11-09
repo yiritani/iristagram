@@ -16,15 +16,18 @@ export default function Feed() {
         </section>
 
         <section className={'hidden md:inline-grid md:col-span-1'}>
-          <div className={'fixed w-[380px]'}>
-            <MiniProfile />
-            <div className={'mt-4 ml-10 justify-between flex'}>
-              <p className={'text-sm text-gray-400'}>Suggestions for you</p>
-              <button className={'text-blue-400 text-sm font-semibold'}>See All</button>
-            </div>
-            <Suggestions />
-
-          </div>
+           {session && (
+              <>
+              <div className={'fixed w-[380px]'}>
+                <MiniProfile />
+                <div className={'mt-4 ml-10 justify-between flex'}>
+                  <p className={'text-sm text-gray-400'}>Suggestions for you</p>
+                  <button className={'text-blue-400 text-sm font-semibold'}>See All</button>
+                </div>
+                <Suggestions />
+              </div>
+              </>
+            )}
         </section>
       </main>
 
