@@ -17,7 +17,6 @@ export default function UploadModal() {
   const uploadPost = async () => {
     if(loading) return;
     setLoading(true);
-    console.log(session)
 
     const docRef = await addDoc(collection(db, 'posts'), {
       'username': session.user.username,
@@ -28,14 +27,11 @@ export default function UploadModal() {
     const imageRef = ref(storage, `posts/${docRef.id}/image`)
     await uploadString(imageRef, selectedFile, 'data_url').then(async snapshot => {
       const downloadURL = await getDownloadURL(imageRef)
-      const docRef = await addDoc(collection(db, 'posts'), {
-        'username': session.user.username,
-        'caption': captionRef.current.value,
-        'profileImg': session.user.image,
-        'timestamp': serverTimestamp(),
-        'image': downloadURL,
+      await updateDoc(doc(db, "posts", docRef.id), {
+        image: downloadURL,
       })
     })
+
     setOpen(false);
     setLoading(false);
     setSelectedFile(null)
