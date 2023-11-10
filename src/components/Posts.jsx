@@ -1,26 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Post from "@/components/Post";
-
+import {query, orderBy, collection, onSnapshot} from "firebase/firestore";
+import {db} from "@/lib/firebase";
+import {useSession} from "next-auth/react";
 
 export default function Posts() {
-  const posts = [
-    {
-      id: '1',
-      username: 'daniel',
-      userImg: 'https://links.papareact.com/3ke',
-      img: 'https://links.papareact.com/3ke',
-      caption: 'Amazing nature photo is here.',
-    },
-    {
-      id: '2',
-      username: 'tonny',
-      userImg: 'https://links.papareact.com/3ke',
-      img: 'https://links.papareact.com/3ke',
-      caption: 'second post',
-    },
-
-  ]
-
+  const [posts, setPosts] = React.useState([])
+  const {data: session} = useSession()
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(collection(db, "posts"), orderBy("timestamp", "desc")),
+      (snapshot) => {
+        setPosts(snapshot.docs);
+      }
+    );
+    return unsubscribe;
+  }, [db]);
 
   return (
     <>
@@ -29,17 +24,13 @@ export default function Posts() {
             <Post
               key={post.id}
               id={post.id}
-              username={post.username}
-              userImg={post.userImg}
-              img={post.img}
-              caption={post.caption}
+              username={post.data().username}
+              userImg={post.data().profileImg}
+              img={post.data().image}
+              caption={post.data().caption}
             />
         ))}
       </div>
-
-
-
-
     </>
   )
 }
