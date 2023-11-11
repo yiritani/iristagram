@@ -2,9 +2,7 @@ import {getProviders, signIn} from "next-auth/react";
 import Header from "@/components/Header";
 
 
-export default function SignIn({providers}) {
-  console.log('providers', providers)
-
+export default function SignIn(providers) {
   return (
     <>
       <Header />
@@ -31,6 +29,14 @@ export default function SignIn({providers}) {
 export async function getServerSideProps(context) {
   const providers = await getProviders();
   return {
-    props: {providers},
+    props: {
+      google: {
+        id: 'google',
+        name: 'Google',
+        type: 'oauth',
+        signinUrl: 'https://iristagram.vercel.app/api/auth/signin/google',
+        callbackUrl: 'https://iristagram.vercel.app/api/auth/callback/google'
+      }
+    },
   }
 }
