@@ -27,6 +27,7 @@ export default function SignIn(providers) {
 }
 
 export async function getServerSideProps(context) {
+  // ToDo: vercelだとなぜかnullになる
   const providers = await getProviders();
   return {
     props: {
