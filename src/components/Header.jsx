@@ -45,7 +45,7 @@ export default function Header() {
           </div>
 
           <div className={"flex space-x-4 items-center"}>
-            <HomeIcon onClick={()=>router.push('/')} className={"hidden lg:inline-flex h-6 w-6 text-gray-500 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out"} />
+            <HomeIcon className={"hidden lg:inline-flex h-6 w-6 text-gray-500 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out"} />
             {session ? (
               <>
                 <PlusCircleIcon onClick={()=>setOpen(true)} className={"h-6 w-6 text-gray-500 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out"} />

@@ -36,7 +36,6 @@ export default function Post({id, username, userImg, img, caption}) {
   }
 
   React.useEffect(() => {
-    console.log('useEffect aaa')
     return onSnapshot(
       query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')),
       (snapshot) => {
@@ -46,7 +45,6 @@ export default function Post({id, username, userImg, img, caption}) {
   }, [db, id])
 
   React.useEffect(() => {
-    console.log('useEffect')
     return onSnapshot(
       query(collection(db, 'posts', id, 'likes')),
       (snapshot) => {

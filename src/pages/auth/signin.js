@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 
 
 export default function SignIn({providers}) {
+  console.log('providers', providers)
 
   return (
     <>
@@ -29,8 +30,6 @@ export default function SignIn({providers}) {
 
 export async function getServerSideProps(context) {
   const providers = await getProviders();
-  console.log('[debug]: providers', providers)
-  console.log('[debug]: providers', providers)
   return {
     props: {providers},
   }
